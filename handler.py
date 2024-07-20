@@ -3,19 +3,24 @@ import requests
 
 def handler(event, context):
     # TODO implement
-    a = event["queryStringParameters"]['description']
+    d = event["queryStringParameters"]['description']
+    p = event["queryStringParameters"]['part']
+    u = event["queryStringParameters"]['userId']
+    n  = event["queryStringParameters"]['noteId']
+    t = event['queryStringParameters']['tod']
+    
 
 # Define the attributes
     attributes = {
-        "userId": "3f957e60-aae2-48aa-8c91-fd48be2471dc",
-        "noteId": "a8098c1a-f86e-11dafrf-bd1a-00112444be1e",
-        "part": "hand",
-        "description": "left hip",
-        "tod": "2024-07-04T22:27:23Z"
+        "userId": u,
+        "noteId": n,
+        "part": p,
+        "description": d,
+        "tod": t
     }
     
     # Target IP address (replace with the actual IP address)
-    target_ip = "3"
+    target_ip = "3."
     
     # Create the JSON body
     json_body = attributes
@@ -30,5 +35,5 @@ def handler(event, context):
     return {
     'statusCode': 200,
     'headers': {'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
-    'body': a
+    'body': t
 }
